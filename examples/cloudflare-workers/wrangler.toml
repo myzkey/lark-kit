@@ -1,0 +1,13 @@
+name = "lark-kit-example"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Set these in your Cloudflare dashboard or use wrangler secret
+# LARK_APP_ID = ""
+# LARK_APP_SECRET = ""
+
+# Optional: Use KV for token storage
+# [[kv_namespaces]]
+# binding = "LARK_TOKEN_STORE"
+# id = "your-kv-namespace-id"
