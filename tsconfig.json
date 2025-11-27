@@ -22,7 +22,9 @@
     "paths": {
       "@lark-kit/core": ["packages/core/src/index.ts"],
       "@lark-kit/shared": ["packages/shared/src/index.ts"],
+      "@lark-kit/approval": ["packages/approval/src/index.ts"],
       "@lark-kit/bitable": ["packages/bitable/src/index.ts"],
+      "@lark-kit/calendar": ["packages/calendar/src/index.ts"],
       "@lark-kit/chat": ["packages/chat/src/index.ts"],
       "@lark-kit/contact": ["packages/contact/src/index.ts"],
       "@lark-kit/drive": ["packages/drive/src/index.ts"],

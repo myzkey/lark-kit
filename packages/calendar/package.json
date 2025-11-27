@@ -1,7 +1,7 @@
 {
-  "name": "lark-kit",
+  "name": "@lark-kit/calendar",
   "version": "1.0.0",
-  "description": "Lightweight TypeScript SDK for Lark (Feishu) API - fetch-only, type-safe, minimal dependencies",
+  "description": "Lark Calendar module for lark-kit",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -19,17 +19,9 @@
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": ["lark", "feishu", "sdk", "api", "typescript", "fetch", "cloudflare-workers", "edge"],
   "dependencies": {
     "@lark-kit/core": "workspace:*",
-    "@lark-kit/shared": "workspace:*",
-    "@lark-kit/approval": "workspace:*",
-    "@lark-kit/bitable": "workspace:*",
-    "@lark-kit/calendar": "workspace:*",
-    "@lark-kit/chat": "workspace:*",
-    "@lark-kit/contact": "workspace:*",
-    "@lark-kit/drive": "workspace:*",
-    "@lark-kit/webhook": "workspace:*"
+    "@lark-kit/shared": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.0.1",
