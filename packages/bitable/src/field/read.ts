@@ -1,7 +1,8 @@
 import type { HttpClient, TokenManager } from '@lark-kit/core'
 import { LarkApiError } from '@lark-kit/core'
 import { ListFieldsResponseSchema, parseResponse } from '@lark-kit/shared'
-import type { ListFieldsPayload, ListFieldsResult } from './types'
+import type { BitableField } from '@lark-kit/shared'
+import type { ListFieldsPayload, ListFieldsResult, ListAllFieldsPayload } from './types'
 
 export async function listFields(
   httpClient: HttpClient,
@@ -32,4 +33,26 @@ export async function listFields(
     page_token: parsed.data?.page_token,
     total: parsed.data?.total,
   }
+}
+
+export async function* listAllFields(
+  httpClient: HttpClient,
+  tokenManager: TokenManager,
+  payload: ListAllFieldsPayload
+): AsyncGenerator<BitableField, void, unknown> {
+  let pageToken: string | undefined
+  const { params, path } = payload
+
+  do {
+    const result = await listFields(httpClient, tokenManager, {
+      params: { ...params, page_token: pageToken },
+      path,
+    })
+
+    for (const field of result.items) {
+      yield field
+    }
+
+    pageToken = result.has_more ? result.page_token : undefined
+  } while (pageToken)
 }

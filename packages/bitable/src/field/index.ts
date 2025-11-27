@@ -4,6 +4,7 @@ export {
   type FieldTypeValue,
   type ListFieldsPayload,
   type ListFieldsResult,
+  type ListAllFieldsPayload,
   type CreateFieldPayload,
   type UpdateFieldPayload,
   type DeleteFieldPayload,

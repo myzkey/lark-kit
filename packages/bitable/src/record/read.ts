@@ -6,7 +6,7 @@ import {
   ListRecordsResponseSchema,
   parseResponse,
 } from '@lark-kit/shared'
-import type { GetRecordPayload, ListRecordsPayload, ListRecordsResult } from './types'
+import type { GetRecordPayload, ListRecordsPayload, ListRecordsResult, ListAllRecordsPayload } from './types'
 
 export async function getRecord(
   httpClient: HttpClient,
@@ -62,4 +62,26 @@ export async function listRecords(
     page_token: parsed.data?.page_token,
     total: parsed.data?.total,
   }
+}
+
+export async function* listAllRecords(
+  httpClient: HttpClient,
+  tokenManager: TokenManager,
+  payload: ListAllRecordsPayload
+): AsyncGenerator<BitableRecord, void, unknown> {
+  let pageToken: string | undefined
+  const { params, path } = payload
+
+  do {
+    const result = await listRecords(httpClient, tokenManager, {
+      params: { ...params, page_token: pageToken },
+      path,
+    })
+
+    for (const record of result.items) {
+      yield record
+    }
+
+    pageToken = result.has_more ? result.page_token : undefined
+  } while (pageToken)
 }

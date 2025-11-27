@@ -6,6 +6,7 @@ export type {
   DeleteRecordPayload,
   ListRecordsPayload,
   ListRecordsResult,
+  ListAllRecordsPayload,
   BatchCreateRecordsPayload,
   BatchUpdateRecordsPayload,
   BatchDeleteRecordsPayload,

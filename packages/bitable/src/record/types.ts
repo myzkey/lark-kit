@@ -77,6 +77,14 @@ export interface ListRecordsResult {
   total?: number
 }
 
+export interface ListAllRecordsPayload {
+  params?: Omit<ListRecordsPayload['params'], 'page_token'>
+  path: {
+    app_token: string
+    table_id: string
+  }
+}
+
 export interface BatchCreateRecordsPayload {
   data: {
     records: Array<{ fields: Record<string, unknown> }>
