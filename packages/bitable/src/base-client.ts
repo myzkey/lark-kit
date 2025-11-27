@@ -1,6 +1,6 @@
 import type { HttpClient, TokenManager } from '@lark-kit/core'
-import { AppTableRecordClient } from './record-client'
-import { AppTableFieldClient } from './field-client'
+import { AppTableFieldClient } from './field'
+import { AppTableRecordClient } from './record'
 
 export class BitableClient {
   public readonly appTableRecord: AppTableRecordClient

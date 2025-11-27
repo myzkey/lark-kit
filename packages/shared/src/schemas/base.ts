@@ -121,8 +121,8 @@ export const BitableFieldSchema = z.object({
   field_id: z.string().optional(),
   field_name: z.string().optional(),
   type: z.number().optional(),
-  property: z.record(z.unknown()).optional(),
-  description: z.string().optional(),
+  property: z.record(z.unknown()).nullable().optional(),
+  description: z.string().nullable().optional(),
   is_primary: z.boolean().optional(),
   is_hidden: z.boolean().optional(),
   ui_type: z.string().optional(),
@@ -141,6 +141,74 @@ export const ListFieldsResponseSchema = z.object({
     .optional(),
 })
 
+export const CreateFieldResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      field: BitableFieldSchema.optional(),
+    })
+    .optional(),
+})
+
+export const UpdateFieldResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      field: BitableFieldSchema.optional(),
+    })
+    .optional(),
+})
+
+export const DeleteFieldResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      field_id: z.string().optional(),
+      deleted: z.boolean().optional(),
+    })
+    .optional(),
+})
+
+export const BatchCreateRecordsResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      records: z.array(BitableRecordSchema).optional(),
+    })
+    .optional(),
+})
+
+export const BatchUpdateRecordsResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      records: z.array(BitableRecordSchema).optional(),
+    })
+    .optional(),
+})
+
+export const BatchDeleteRecordsResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      records: z
+        .array(
+          z.object({
+            deleted: z.boolean().optional(),
+            record_id: z.string().optional(),
+          })
+        )
+        .optional(),
+    })
+    .optional(),
+})
+
 export type FieldValue = z.infer<typeof FieldValueSchema>
 export type Person = z.infer<typeof PersonSchema>
 export type BitableRecord = z.infer<typeof BitableRecordSchema>
@@ -151,3 +219,9 @@ export type DeleteRecordResponse = z.infer<typeof DeleteRecordResponseSchema>
 export type ListRecordsResponse = z.infer<typeof ListRecordsResponseSchema>
 export type BitableField = z.infer<typeof BitableFieldSchema>
 export type ListFieldsResponse = z.infer<typeof ListFieldsResponseSchema>
+export type CreateFieldResponse = z.infer<typeof CreateFieldResponseSchema>
+export type UpdateFieldResponse = z.infer<typeof UpdateFieldResponseSchema>
+export type DeleteFieldResponse = z.infer<typeof DeleteFieldResponseSchema>
+export type BatchCreateRecordsResponse = z.infer<typeof BatchCreateRecordsResponseSchema>
+export type BatchUpdateRecordsResponse = z.infer<typeof BatchUpdateRecordsResponseSchema>
+export type BatchDeleteRecordsResponse = z.infer<typeof BatchDeleteRecordsResponseSchema>

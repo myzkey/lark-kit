@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "tsx index.ts"
+    "start": "node --env-file=.env --import=tsx index.ts"
   },
   "dependencies": {
     "lark-kit": "workspace:*"

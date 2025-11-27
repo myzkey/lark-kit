@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { TokenManager } from './token-manager'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { LarkAuthError } from './errors'
+import { TokenManager } from './token-manager'
 import type { TokenStorage } from './types'
 
 describe('TokenManager', () => {

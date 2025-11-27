@@ -20,8 +20,8 @@ export type {
   RequestOptions,
 } from '@lark-kit/core'
 
-// Re-export from base
-export { BitableClient, AppTableRecordClient, AppTableFieldClient } from '@lark-kit/base'
+// Re-export from bitable
+export { BitableClient, AppTableRecordClient, AppTableFieldClient, FieldType } from '@lark-kit/bitable'
 export type {
   CreateRecordPayload,
   GetRecordPayload,
@@ -29,13 +29,25 @@ export type {
   DeleteRecordPayload,
   ListRecordsPayload,
   ListRecordsResult,
+  BatchCreateRecordsPayload,
+  BatchUpdateRecordsPayload,
+  BatchDeleteRecordsPayload,
   ListFieldsPayload,
   ListFieldsResult,
-} from '@lark-kit/base'
+  CreateFieldPayload,
+  UpdateFieldPayload,
+  DeleteFieldPayload,
+  FieldTypeValue,
+} from '@lark-kit/bitable'
 
 // Re-export from chat
-export { ImClient, MessageClient } from '@lark-kit/chat'
-export type { CreateMessagePayload, ReplyMessagePayload } from '@lark-kit/chat'
+export { ImClient, MessageClient, ChatClient } from '@lark-kit/chat'
+export type {
+  CreateMessagePayload,
+  ReplyMessagePayload,
+  ListChatsPayload,
+  ListChatsResult,
+} from '@lark-kit/chat'
 
 // Re-export types from shared
 export type {
@@ -43,4 +55,15 @@ export type {
   BitableField,
   Message,
   ReceiveIdType,
+  Chat,
+  Card,
+  CardHeader,
+  CardElement,
+  CardDivElement,
+  CardHrElement,
+  CardActionElement,
+  CardButtonAction,
+  CardNoteElement,
+  CardTextElement,
+  CardConfig,
 } from '@lark-kit/shared'
