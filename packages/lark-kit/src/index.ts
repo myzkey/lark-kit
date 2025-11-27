@@ -115,6 +115,20 @@ export type {
   ListAllUsersPayload,
 } from '@lark-kit/contact'
 
+// Re-export from task
+export { TaskClient, TaskResourceClient } from '@lark-kit/task'
+export type {
+  CreateTaskPayload,
+  GetTaskPayload,
+  ListTasksPayload,
+  ListTasksResult,
+  ListAllTasksPayload,
+  UpdateTaskPayload,
+  DeleteTaskPayload,
+  CompleteTaskPayload,
+  UncompleteTaskPayload,
+} from '@lark-kit/task'
+
 // Re-export from drive
 export { DriveClient } from '@lark-kit/drive'
 export type { UploadParams, UploadResult } from '@lark-kit/drive'
@@ -147,6 +161,12 @@ export type {
   BitableRecord,
   BitableField,
   BitableTable,
+  // Task
+  Task,
+  TaskDue,
+  TaskOrigin,
+  TaskOriginHref,
+  TaskMember,
   // Calendar
   Calendar,
   CalendarEvent,

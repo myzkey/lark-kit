@@ -28,6 +28,7 @@
       "@lark-kit/chat": ["packages/chat/src/index.ts"],
       "@lark-kit/contact": ["packages/contact/src/index.ts"],
       "@lark-kit/drive": ["packages/drive/src/index.ts"],
+      "@lark-kit/task": ["packages/task/src/index.ts"],
       "@lark-kit/webhook": ["packages/webhook/src/index.ts"],
       "lark-kit": ["packages/lark-kit/src/index.ts"]
     }

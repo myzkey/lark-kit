@@ -4,6 +4,7 @@ import { CalendarClient } from '@lark-kit/calendar'
 import { ImClient } from '@lark-kit/chat'
 import { ContactClient } from '@lark-kit/contact'
 import { DriveClient } from '@lark-kit/drive'
+import { TaskClient } from '@lark-kit/task'
 import {
   Domain,
   HttpClient,
@@ -19,6 +20,7 @@ export class Client {
   public readonly im: ImClient
   public readonly contact: ContactClient
   public readonly drive: DriveClient
+  public readonly task: TaskClient
 
   private readonly httpClient: HttpClient
   private readonly tokenManager: TokenManager
@@ -38,5 +40,6 @@ export class Client {
     this.im = new ImClient(this.httpClient, this.tokenManager)
     this.contact = new ContactClient(this.httpClient, this.tokenManager)
     this.drive = new DriveClient(this.tokenManager)
+    this.task = new TaskClient(this.httpClient, this.tokenManager)
   }
 }
