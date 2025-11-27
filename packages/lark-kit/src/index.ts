@@ -1,5 +1,20 @@
 export { Client } from './lark'
 
+// Re-export from approval
+export { ApprovalClient, ApprovalDefinitionClient, ApprovalInstanceClient } from '@lark-kit/approval'
+export type {
+  GetDefinitionPayload,
+  CreateInstancePayload,
+  GetInstancePayload,
+  ListInstancesPayload,
+  ListInstancesResult,
+  ListAllInstancesPayload,
+  CancelInstancePayload,
+  ApproveTaskPayload,
+  RejectTaskPayload,
+  TransferTaskPayload,
+} from '@lark-kit/approval'
+
 // Re-export from core
 export {
   HttpClient,
@@ -28,6 +43,27 @@ export {
   AppTableFieldClient,
   FieldType,
 } from '@lark-kit/bitable'
+
+// Re-export from calendar
+export { CalendarClient, CalendarResourceClient, CalendarEventClient } from '@lark-kit/calendar'
+export type {
+  CreateCalendarPayload,
+  GetCalendarPayload,
+  ListCalendarsPayload,
+  ListCalendarsResult,
+  UpdateCalendarPayload,
+  DeleteCalendarPayload,
+  TimeInfo,
+  CreateCalendarEventPayload,
+  GetCalendarEventPayload,
+  ListCalendarEventsPayload,
+  ListCalendarEventsResult,
+  UpdateCalendarEventPayload,
+  DeleteCalendarEventPayload,
+  ListCalendarEventAttendeesPayload,
+  ListCalendarEventAttendeesResult,
+  CreateCalendarEventAttendeesPayload,
+} from '@lark-kit/calendar'
 export type {
   CreateRecordPayload,
   GetRecordPayload,
@@ -94,9 +130,29 @@ export type { WebhookConfig, EventHandlers, EventType, HandleResult } from '@lar
 
 // Re-export types from shared
 export type {
+  // Approval
+  ApprovalStatus,
+  InstanceStatus,
+  TaskStatus,
+  ApprovalViewer,
+  ApprovalNode,
+  ApprovalDefinition,
+  ApprovalTask,
+  CommentFile,
+  ApprovalComment,
+  CcUser,
+  ApprovalTimeline,
+  ApprovalInstance,
+  // Bitable
   BitableRecord,
   BitableField,
   BitableTable,
+  // Calendar
+  Calendar,
+  CalendarEvent,
+  CalendarEventAttendee,
+  FreeBusy,
+  // Chat
   Message,
   ReceiveIdType,
   Chat,
