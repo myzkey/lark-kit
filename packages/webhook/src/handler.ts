@@ -29,7 +29,7 @@ export interface WebhookConfig {
 
 export interface EventHandlers {
   /** Handle URL verification challenge */
-  url_verification?: (event: UrlVerificationEvent) => Promise<{ challenge: string } | void>
+  url_verification?: (event: UrlVerificationEvent) => Promise<{ challenge: string } | undefined>
   /** Handle incoming message */
   'im.message.receive_v1'?: (event: MessageReceiveEvent) => Promise<void>
   /** Handle message read */
@@ -37,7 +37,7 @@ export interface EventHandlers {
   /** Handle bot added to chat */
   'im.chat.member.bot.added_v1'?: (event: BotAddedEvent) => Promise<void>
   /** Handle card action */
-  'card.action.trigger'?: (event: CardActionEvent) => Promise<Record<string, unknown> | void>
+  'card.action.trigger'?: (event: CardActionEvent) => Promise<Record<string, unknown> | undefined>
 }
 
 export interface HandleResult {
@@ -118,7 +118,7 @@ export class WebhookHandler {
     // Check for URL verification
     const urlVerification = UrlVerificationEventSchema.safeParse(eventData)
     if (urlVerification.success) {
-      const handler = this.handlers['url_verification']
+      const handler = this.handlers.url_verification
       if (handler) {
         const result = await handler(urlVerification.data)
         if (result) {
