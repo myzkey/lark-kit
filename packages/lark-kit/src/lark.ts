@@ -1,5 +1,6 @@
 import { BitableClient } from '@lark-kit/bitable'
 import { ImClient } from '@lark-kit/chat'
+import { ContactClient } from '@lark-kit/contact'
 import {
   Domain,
   HttpClient,
@@ -11,6 +12,7 @@ import {
 export class Client {
   public readonly bitable: BitableClient
   public readonly im: ImClient
+  public readonly contact: ContactClient
 
   private readonly httpClient: HttpClient
   private readonly tokenManager: TokenManager
@@ -26,5 +28,6 @@ export class Client {
 
     this.bitable = new BitableClient(this.httpClient, this.tokenManager)
     this.im = new ImClient(this.httpClient, this.tokenManager)
+    this.contact = new ContactClient(this.httpClient, this.tokenManager)
   }
 }

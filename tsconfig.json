@@ -24,6 +24,7 @@
       "@lark-kit/shared": ["packages/shared/src/index.ts"],
       "@lark-kit/bitable": ["packages/bitable/src/index.ts"],
       "@lark-kit/chat": ["packages/chat/src/index.ts"],
+      "@lark-kit/contact": ["packages/contact/src/index.ts"],
       "lark-kit": ["packages/lark-kit/src/index.ts"]
     }
   },
