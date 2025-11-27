@@ -80,7 +80,12 @@ export type {
 } from '@lark-kit/contact'
 
 // Re-export from webhook
-export { WebhookHandler, createWebhookHandler, verifySignature, decryptEvent } from '@lark-kit/webhook'
+export {
+  WebhookHandler,
+  createWebhookHandler,
+  verifySignature,
+  decryptEvent,
+} from '@lark-kit/webhook'
 export type { WebhookConfig, EventHandlers, EventType, HandleResult } from '@lark-kit/webhook'
 
 // Re-export types from shared

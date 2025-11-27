@@ -29,7 +29,7 @@ export interface WebhookConfig {
 
 export interface EventHandlers {
   /** Handle URL verification challenge */
-  'url_verification'?: (event: UrlVerificationEvent) => Promise<{ challenge: string } | void>
+  url_verification?: (event: UrlVerificationEvent) => Promise<{ challenge: string } | void>
   /** Handle incoming message */
   'im.message.receive_v1'?: (event: MessageReceiveEvent) => Promise<void>
   /** Handle message read */
