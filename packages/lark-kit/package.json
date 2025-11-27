@@ -29,6 +29,7 @@
     "@lark-kit/chat": "workspace:*",
     "@lark-kit/contact": "workspace:*",
     "@lark-kit/drive": "workspace:*",
+    "@lark-kit/task": "workspace:*",
     "@lark-kit/webhook": "workspace:*"
   },
   "devDependencies": {
