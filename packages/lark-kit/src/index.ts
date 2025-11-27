@@ -79,6 +79,10 @@ export type {
   ListAllUsersPayload,
 } from '@lark-kit/contact'
 
+// Re-export from drive
+export { DriveClient } from '@lark-kit/drive'
+export type { UploadParams, UploadResult } from '@lark-kit/drive'
+
 // Re-export from webhook
 export {
   WebhookHandler,

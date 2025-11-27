@@ -163,6 +163,9 @@ importers:
       '@lark-kit/core':
         specifier: workspace:*
         version: link:../core
+      '@lark-kit/drive':
+        specifier: workspace:*
+        version: link:../drive
       '@lark-kit/shared':
         specifier: workspace:*
         version: link:../shared
