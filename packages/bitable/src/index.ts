@@ -23,3 +23,12 @@ export {
   type UpdateFieldPayload,
   type DeleteFieldPayload,
 } from './field'
+export {
+  AppTableClient,
+  type ListTablesPayload,
+  type ListTablesResult,
+  type ListAllTablesPayload,
+  type CreateTablePayload,
+  type CreateTableResult,
+  type DeleteTablePayload,
+} from './table'

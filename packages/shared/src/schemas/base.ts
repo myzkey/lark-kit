@@ -225,3 +225,46 @@ export type DeleteFieldResponse = z.infer<typeof DeleteFieldResponseSchema>
 export type BatchCreateRecordsResponse = z.infer<typeof BatchCreateRecordsResponseSchema>
 export type BatchUpdateRecordsResponse = z.infer<typeof BatchUpdateRecordsResponseSchema>
 export type BatchDeleteRecordsResponse = z.infer<typeof BatchDeleteRecordsResponseSchema>
+
+// Table schemas
+export const BitableTableSchema = z.object({
+  table_id: z.string().optional(),
+  revision: z.number().optional(),
+  name: z.string().optional(),
+})
+
+export const ListTablesResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      has_more: z.boolean().optional(),
+      page_token: z.string().optional(),
+      total: z.number().optional(),
+      items: z.array(BitableTableSchema).optional(),
+    })
+    .optional(),
+})
+
+export const CreateTableResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      table_id: z.string().optional(),
+      default_view_id: z.string().optional(),
+      field_id_list: z.array(z.string()).optional(),
+    })
+    .optional(),
+})
+
+export const DeleteTableResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z.object({}).optional(),
+})
+
+export type BitableTable = z.infer<typeof BitableTableSchema>
+export type ListTablesResponse = z.infer<typeof ListTablesResponseSchema>
+export type CreateTableResponse = z.infer<typeof CreateTableResponseSchema>
+export type DeleteTableResponse = z.infer<typeof DeleteTableResponseSchema>

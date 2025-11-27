@@ -23,6 +23,7 @@ export type {
 // Re-export from bitable
 export {
   BitableClient,
+  AppTableClient,
   AppTableRecordClient,
   AppTableFieldClient,
   FieldType,
@@ -45,6 +46,12 @@ export type {
   UpdateFieldPayload,
   DeleteFieldPayload,
   FieldTypeValue,
+  ListTablesPayload,
+  ListTablesResult,
+  ListAllTablesPayload,
+  CreateTablePayload,
+  CreateTableResult,
+  DeleteTablePayload,
 } from '@lark-kit/bitable'
 
 // Re-export from chat
@@ -62,6 +69,7 @@ export type {
 export type {
   BitableRecord,
   BitableField,
+  BitableTable,
   Message,
   ReceiveIdType,
   Chat,
