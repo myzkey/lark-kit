@@ -2,7 +2,7 @@ import type { HttpClient, TokenManager } from '@lark-kit/core'
 import type { BitableRecord } from '@lark-kit/shared'
 import { batchCreateRecords, createRecord } from './create'
 import { batchDeleteRecords, deleteRecord } from './delete'
-import { getRecord, listRecords } from './read'
+import { getRecord, listRecords, listAllRecords } from './read'
 import type {
   BatchCreateRecordsPayload,
   BatchDeleteRecordsPayload,
@@ -12,6 +12,7 @@ import type {
   GetRecordPayload,
   ListRecordsPayload,
   ListRecordsResult,
+  ListAllRecordsPayload,
   UpdateRecordPayload,
 } from './types'
 import { batchUpdateRecords, updateRecord } from './update'
@@ -60,6 +61,17 @@ export class AppTableRecordClient {
    */
   list(payload: ListRecordsPayload): Promise<ListRecordsResult> {
     return listRecords(this.httpClient, this.tokenManager, payload)
+  }
+
+  /**
+   * List all records in a table with automatic pagination
+   * @example
+   * for await (const record of client.bitable.appTableRecord.listAll({ path: { app_token, table_id } })) {
+   *   console.log(record)
+   * }
+   */
+  listAll(payload: ListAllRecordsPayload): AsyncGenerator<BitableRecord, void, unknown> {
+    return listAllRecords(this.httpClient, this.tokenManager, payload)
   }
 
   /**

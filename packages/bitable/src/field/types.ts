@@ -50,6 +50,14 @@ export interface ListFieldsResult {
   total?: number
 }
 
+export interface ListAllFieldsPayload {
+  params?: Omit<ListFieldsPayload['params'], 'page_token'>
+  path: {
+    app_token: string
+    table_id: string
+  }
+}
+
 export interface CreateFieldPayload {
   path: {
     app_token: string

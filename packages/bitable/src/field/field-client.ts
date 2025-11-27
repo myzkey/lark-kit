@@ -2,12 +2,13 @@ import type { HttpClient, TokenManager } from '@lark-kit/core'
 import type { BitableField } from '@lark-kit/shared'
 import { createField } from './create'
 import { deleteField } from './delete'
-import { listFields } from './read'
+import { listFields, listAllFields } from './read'
 import type {
   CreateFieldPayload,
   DeleteFieldPayload,
   ListFieldsPayload,
   ListFieldsResult,
+  ListAllFieldsPayload,
   UpdateFieldPayload,
 } from './types'
 import { updateField } from './update'
@@ -24,6 +25,17 @@ export class AppTableFieldClient {
    */
   list(payload: ListFieldsPayload): Promise<ListFieldsResult> {
     return listFields(this.httpClient, this.tokenManager, payload)
+  }
+
+  /**
+   * List all fields in a table with automatic pagination
+   * @example
+   * for await (const field of client.bitable.appTableField.listAll({ path: { app_token, table_id } })) {
+   *   console.log(field)
+   * }
+   */
+  listAll(payload: ListAllFieldsPayload): AsyncGenerator<BitableField, void, unknown> {
+    return listAllFields(this.httpClient, this.tokenManager, payload)
   }
 
   /**
