@@ -1,12 +1,12 @@
-import {
-  HttpClient,
-  TokenManager,
-  InMemoryTokenStorage,
-  Domain,
-  type LarkConfig,
-} from '@lark-kit/core'
 import { BitableClient } from '@lark-kit/bitable'
 import { ImClient } from '@lark-kit/chat'
+import {
+  Domain,
+  HttpClient,
+  InMemoryTokenStorage,
+  type LarkConfig,
+  TokenManager,
+} from '@lark-kit/core'
 
 export class Client {
   public readonly bitable: BitableClient
