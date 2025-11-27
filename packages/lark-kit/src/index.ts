@@ -79,6 +79,10 @@ export type {
   ListAllUsersPayload,
 } from '@lark-kit/contact'
 
+// Re-export from webhook
+export { WebhookHandler, createWebhookHandler, verifySignature, decryptEvent } from '@lark-kit/webhook'
+export type { WebhookConfig, EventHandlers, EventType, HandleResult } from '@lark-kit/webhook'
+
 // Re-export types from shared
 export type {
   BitableRecord,
@@ -101,4 +105,14 @@ export type {
   UserAvatar,
   UserStatus,
   UserIdType,
+  // Webhook events
+  EventHeader,
+  UrlVerificationEvent,
+  EventSender,
+  EventMessage,
+  MessageReceiveEvent,
+  MessageReadEvent,
+  BotAddedEvent,
+  CardActionEvent,
+  EventV2,
 } from '@lark-kit/shared'
