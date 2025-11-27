@@ -21,7 +21,12 @@ export type {
 } from '@lark-kit/core'
 
 // Re-export from bitable
-export { BitableClient, AppTableRecordClient, AppTableFieldClient, FieldType } from '@lark-kit/bitable'
+export {
+  BitableClient,
+  AppTableRecordClient,
+  AppTableFieldClient,
+  FieldType,
+} from '@lark-kit/bitable'
 export type {
   CreateRecordPayload,
   GetRecordPayload,
@@ -43,12 +48,14 @@ export type {
 } from '@lark-kit/bitable'
 
 // Re-export from chat
-export { ImClient, MessageClient, ChatClient } from '@lark-kit/chat'
+export { ImClient, MessageClient, ChatClient, ImageClient, FileClient } from '@lark-kit/chat'
 export type {
   CreateMessagePayload,
   ReplyMessagePayload,
   ListChatsPayload,
   ListChatsResult,
+  ImageType,
+  FileType,
 } from '@lark-kit/chat'
 
 // Re-export types from shared

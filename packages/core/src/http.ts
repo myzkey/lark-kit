@@ -7,6 +7,7 @@ export interface RequestConfig {
   data?: unknown
   params?: Record<string, string | number | boolean | undefined>
   path?: Record<string, string>
+  formData?: FormData
 }
 
 export type RequestHook = (config: RequestConfig) => void
@@ -46,7 +47,7 @@ export class HttpClient {
   }
 
   async request<T>(config: RequestConfig): Promise<T> {
-    const { method, data, params, path, headers: configHeaders } = config
+    const { method, data, params, path, headers: configHeaders, formData } = config
 
     const filledPath = fillApiPath(config.url, path)
     const queryString = buildQueryString(params)
@@ -57,15 +58,26 @@ export class HttpClient {
     this.onRequest?.(config)
 
     const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
       'User-Agent': 'lark-kit/1.0.0',
       ...configHeaders,
+    }
+
+    // Don't set Content-Type for FormData (browser will set it with boundary)
+    if (!formData) {
+      headers['Content-Type'] = 'application/json'
+    }
+
+    let body: string | FormData | undefined
+    if (formData) {
+      body = formData
+    } else if (data) {
+      body = JSON.stringify(data)
     }
 
     const response = await fetch(url, {
       method,
       headers,
-      body: data ? JSON.stringify(data) : undefined,
+      body,
     })
 
     const responseData = await response.json()

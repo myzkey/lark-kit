@@ -79,6 +79,29 @@ export type ReplyMessageResponse = z.infer<typeof ReplyMessageResponseSchema>
 export type Chat = z.infer<typeof ChatSchema>
 export type ListChatsResponse = z.infer<typeof ListChatsResponseSchema>
 
+export const UploadImageResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      image_key: z.string().optional(),
+    })
+    .optional(),
+})
+
+export const UploadFileResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      file_key: z.string().optional(),
+    })
+    .optional(),
+})
+
+export type UploadImageResponse = z.infer<typeof UploadImageResponseSchema>
+export type UploadFileResponse = z.infer<typeof UploadFileResponseSchema>
+
 // Card types for interactive messages
 export interface CardHeader {
   title: {

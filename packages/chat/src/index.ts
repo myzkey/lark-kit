@@ -1,7 +1,9 @@
-export { ImClient, MessageClient, ChatClient } from './chat-client'
+export { ImClient, MessageClient, ChatClient, ImageClient, FileClient } from './chat-client'
 export type {
   CreateMessagePayload,
   ReplyMessagePayload,
   ListChatsPayload,
   ListChatsResult,
+  ImageType,
+  FileType,
 } from './chat-client'
