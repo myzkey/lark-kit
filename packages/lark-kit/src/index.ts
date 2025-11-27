@@ -59,6 +59,10 @@ export { ImClient, MessageClient, ChatClient, ImageClient, FileClient } from '@l
 export type {
   CreateMessagePayload,
   ReplyMessagePayload,
+  GetMessagePayload,
+  ListMessagesPayload,
+  ListMessagesResult,
+  ListAllMessagesPayload,
   ListChatsPayload,
   ListChatsResult,
   ImageType,

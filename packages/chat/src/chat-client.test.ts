@@ -1,7 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { MessageClient, ImClient } from './chat-client'
 import type { HttpClient, TokenManager } from '@lark-kit/core'
 import { LarkApiError } from '@lark-kit/core'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { ImClient } from './im-client'
+import { MessageClient } from './message-client'
 
 describe('MessageClient', () => {
   let mockHttpClient: HttpClient

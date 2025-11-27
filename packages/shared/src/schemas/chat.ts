@@ -102,6 +102,31 @@ export const UploadFileResponseSchema = z.object({
 export type UploadImageResponse = z.infer<typeof UploadImageResponseSchema>
 export type UploadFileResponse = z.infer<typeof UploadFileResponseSchema>
 
+export const GetMessageResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      items: z.array(MessageSchema).optional(),
+    })
+    .optional(),
+})
+
+export const ListMessagesResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      items: z.array(MessageSchema).optional(),
+      has_more: z.boolean().optional(),
+      page_token: z.string().optional(),
+    })
+    .optional(),
+})
+
+export type GetMessageResponse = z.infer<typeof GetMessageResponseSchema>
+export type ListMessagesResponse = z.infer<typeof ListMessagesResponseSchema>
+
 // Card types for interactive messages
 export interface CardHeader {
   title: {
