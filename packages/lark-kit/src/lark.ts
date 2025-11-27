@@ -5,7 +5,7 @@ import {
   Domain,
   type LarkConfig,
 } from '@lark-kit/core'
-import { BitableClient } from '@lark-kit/base'
+import { BitableClient } from '@lark-kit/bitable'
 import { ImClient } from '@lark-kit/chat'
 
 export class Client {

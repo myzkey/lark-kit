@@ -46,9 +46,105 @@ export const ReplyMessageResponseSchema = z.object({
   data: MessageSchema.optional(),
 })
 
+export const ChatSchema = z.object({
+  chat_id: z.string().optional(),
+  avatar: z.string().optional(),
+  name: z.string().optional(),
+  description: z.string().optional(),
+  owner_id: z.string().optional(),
+  owner_id_type: z.string().optional(),
+  external: z.boolean().optional(),
+  tenant_key: z.string().optional(),
+  chat_status: z.string().optional(),
+})
+
+export const ListChatsResponseSchema = z.object({
+  code: z.number().optional(),
+  msg: z.string().optional(),
+  data: z
+    .object({
+      items: z.array(ChatSchema).optional(),
+      page_token: z.string().optional(),
+      has_more: z.boolean().optional(),
+    })
+    .optional(),
+})
+
 export type ReceiveIdType = z.infer<typeof ReceiveIdTypeSchema>
 export type Sender = z.infer<typeof SenderSchema>
 export type Mention = z.infer<typeof MentionSchema>
 export type Message = z.infer<typeof MessageSchema>
 export type CreateMessageResponse = z.infer<typeof CreateMessageResponseSchema>
 export type ReplyMessageResponse = z.infer<typeof ReplyMessageResponseSchema>
+export type Chat = z.infer<typeof ChatSchema>
+export type ListChatsResponse = z.infer<typeof ListChatsResponseSchema>
+
+// Card types for interactive messages
+export interface CardHeader {
+  title: {
+    tag: 'plain_text' | 'lark_md'
+    content: string
+  }
+  template?:
+    | 'blue'
+    | 'wathet'
+    | 'turquoise'
+    | 'green'
+    | 'yellow'
+    | 'orange'
+    | 'red'
+    | 'carmine'
+    | 'violet'
+    | 'purple'
+    | 'indigo'
+    | 'grey'
+}
+
+export interface CardTextElement {
+  tag: 'plain_text' | 'lark_md'
+  content: string
+}
+
+export interface CardDivElement {
+  tag: 'div'
+  text?: CardTextElement
+  fields?: Array<{
+    is_short: boolean
+    text: CardTextElement
+  }>
+}
+
+export interface CardHrElement {
+  tag: 'hr'
+}
+
+export interface CardButtonAction {
+  tag: 'button'
+  text: CardTextElement
+  type?: 'default' | 'primary' | 'danger'
+  url?: string
+  value?: Record<string, unknown>
+}
+
+export interface CardActionElement {
+  tag: 'action'
+  actions: CardButtonAction[]
+}
+
+export interface CardNoteElement {
+  tag: 'note'
+  elements: CardTextElement[]
+}
+
+export type CardElement = CardDivElement | CardHrElement | CardActionElement | CardNoteElement
+
+export interface CardConfig {
+  wide_screen_mode?: boolean
+  enable_forward?: boolean
+}
+
+export interface Card {
+  config?: CardConfig
+  header?: CardHeader
+  elements: CardElement[]
+}

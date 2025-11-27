@@ -23,7 +23,7 @@
   "dependencies": {
     "@lark-kit/core": "workspace:*",
     "@lark-kit/shared": "workspace:*",
-    "@lark-kit/base": "workspace:*",
+    "@lark-kit/bitable": "workspace:*",
     "@lark-kit/chat": "workspace:*"
   },
   "devDependencies": {

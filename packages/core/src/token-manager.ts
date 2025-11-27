@@ -1,6 +1,6 @@
 import { LarkAuthError } from './errors'
 import { HttpClient } from './http'
-import type { TokenStorage, TenantAccessTokenResponse } from './types'
+import type { TenantAccessTokenResponse, TokenStorage } from './types'
 
 const TOKEN_CACHE_KEY = 'lark_tenant_access_token'
 const TOKEN_BUFFER_MS = 3 * 60 * 1000 // 3 minutes before expiry (same as official SDK)
