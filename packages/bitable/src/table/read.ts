@@ -1,10 +1,6 @@
 import type { HttpClient, TokenManager } from '@lark-kit/core'
 import { LarkApiError } from '@lark-kit/core'
-import {
-  ListTablesResponseSchema,
-  parseResponse,
-  type BitableTable,
-} from '@lark-kit/shared'
+import { ListTablesResponseSchema, parseResponse, type BitableTable } from '@lark-kit/shared'
 import type { ListTablesPayload, ListTablesResult, ListAllTablesPayload } from './types'
 
 export async function listTables(
@@ -16,14 +12,11 @@ export async function listTables(
   const token = await tokenManager.getTenantAccessToken()
   const headers = { Authorization: `Bearer ${token}` }
 
-  const response = await httpClient.get(
-    '/open-apis/bitable/v1/apps/:app_token/tables',
-    {
-      headers,
-      params,
-      path,
-    }
-  )
+  const response = await httpClient.get('/open-apis/bitable/v1/apps/:app_token/tables', {
+    headers,
+    params,
+    path,
+  })
 
   const parsed = parseResponse(ListTablesResponseSchema, response)
   if (parsed.code !== 0) {

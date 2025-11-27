@@ -12,14 +12,11 @@ export async function createTable(
   const token = await tokenManager.getTenantAccessToken()
   const headers = { Authorization: `Bearer ${token}` }
 
-  const response = await httpClient.post(
-    '/open-apis/bitable/v1/apps/:app_token/tables',
-    {
-      headers,
-      path,
-      data,
-    }
-  )
+  const response = await httpClient.post('/open-apis/bitable/v1/apps/:app_token/tables', {
+    headers,
+    path,
+    data,
+  })
 
   const parsed = parseResponse(CreateTableResponseSchema, response)
   if (parsed.code !== 0) {

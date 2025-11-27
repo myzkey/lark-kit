@@ -6,7 +6,12 @@ import {
   ListRecordsResponseSchema,
   parseResponse,
 } from '@lark-kit/shared'
-import type { GetRecordPayload, ListRecordsPayload, ListRecordsResult, ListAllRecordsPayload } from './types'
+import type {
+  GetRecordPayload,
+  ListRecordsPayload,
+  ListRecordsResult,
+  ListAllRecordsPayload,
+} from './types'
 
 export async function getRecord(
   httpClient: HttpClient,

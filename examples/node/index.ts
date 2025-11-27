@@ -130,11 +130,7 @@ const commands: Record<string, () => Promise<void>> = {
   },
 
   'im:send-text': async () => {
-    const message = await client.im.message.sendText(
-      'chat_id',
-      CHAT_ID,
-      'Hello from lark-kit!'
-    )
+    const message = await client.im.message.sendText('chat_id', CHAT_ID, 'Hello from lark-kit!')
     console.log('Sent text message:', message)
   },
 
