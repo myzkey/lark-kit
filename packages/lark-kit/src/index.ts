@@ -69,6 +69,16 @@ export type {
   FileType,
 } from '@lark-kit/chat'
 
+// Re-export from contact
+export { ContactClient, UserClient } from '@lark-kit/contact'
+export type {
+  GetUserPayload,
+  BatchGetUsersPayload,
+  ListUsersPayload,
+  ListUsersResult,
+  ListAllUsersPayload,
+} from '@lark-kit/contact'
+
 // Re-export types from shared
 export type {
   BitableRecord,
@@ -87,4 +97,8 @@ export type {
   CardNoteElement,
   CardTextElement,
   CardConfig,
+  User,
+  UserAvatar,
+  UserStatus,
+  UserIdType,
 } from '@lark-kit/shared'
